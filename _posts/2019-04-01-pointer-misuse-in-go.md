@@ -2,7 +2,7 @@
 title: Pointer misuse in Go
 date: 2019-04-01 00:00:00
 featured_image: "/images/go-pointers/featured.png"
-excerpt: Something
+excerpt: Looking at some of the ways pointers get misused in Go and how we can improve them.
 ---
 
 ![Photo by Ashley @ https://github.com/ashleymcnamara/gophers](/images/go-pointers/featured.png)
@@ -182,7 +182,7 @@ Great. But we can make it more Go-like based on what we have discussed so far.
     }
 {% endhighlight %}
 
-Whether is worth the extra step or not is up to the programmer I suppoer and the circumstances.
+Whether is worth the extra step or not is up to the programmer and the circumstances.
 
 Up until this point, I mentiond that pointers are mostly an optimization strategy which is slightly misleading. In his book [Go in Action](https://www.manning.com/books/go-in-action), [Bill Kennedy](https://twitter.com/goinggodotnet) goes in great detail about pointers semantics. Pointer semantics are _the_ way we should think about the way we build software in Go. Performance can come later.
 
