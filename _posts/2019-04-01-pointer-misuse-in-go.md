@@ -293,5 +293,5 @@ Let's flip it on it's head a bit and see our functions as if it was returning a 
 
 In this case we cannot just return `nil` which would have forced us to use one of the ways we experimented with earlier. Naturally, and given practical requirements, we would have opted in for returning an `error` as second argument. The convenience of being able to return `nil` however, clouded the way we should have looked at that piece of code in the first place.
 
-To recap: pointer semantices should be the driving force when using pointers. Performance can come later.
+To recap: pointer semantics should be the driving force when using pointers. Performance can come later. Avoid passing `nil` when pointers are expected.
 
