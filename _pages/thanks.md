@@ -3,6 +3,7 @@ title: Thank you
 subtitle: Your message was sent successfully.
 description: Simples is a super simple blogging theme for Jekyll.
 featured_image: /images/demo/demo-landscape.jpg
+sitemap: false
 ---
 
 ![](/images/demo/demo-landscape.jpg)
