@@ -107,7 +107,7 @@ Nice! It's very clear to the reader that this function receives a string and ret
 
 What about the method? Well that's an interesting one. On the surface, it's no better than the initial implementation. I beg to disagree though. By hiding the internal implementation and attaching it to the `Human` type, we have now given full control of details to the struct itself.
 
-### Aim to make functions are "pure" as possible
+### Aim to make functions as "pure" as possible
 Purity is a term you normally associate with Haskell but that doesn't mean we cannot make use of it in Go as well. Functions without side-effects makes refactoring so much easier. Let's say we are staring at the initial solution fresh. Practically, that function takes a string and uppercases it. So why does it need to be associated with a `Human` and it's `Name`? It sounds like it could live under the `string` package. [Indeed such function does exist!](https://golang.org/pkg/strings/#ToUpper) But let's assume that it didn't exist. What would our code look like.
 
 {% highlight go %}

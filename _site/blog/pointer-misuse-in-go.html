@@ -217,7 +217,7 @@
 
 <p>What about the method? Well that’s an interesting one. On the surface, it’s no better than the initial implementation. I beg to disagree though. By hiding the internal implementation and attaching it to the <code class="highlighter-rouge">Human</code> type, we have now given full control of details to the struct itself.</p>
 
-<h3 id="aim-to-make-functions-are-pure-as-possible">Aim to make functions are “pure” as possible</h3>
+<h3 id="aim-to-make-functions-as-pure-as-possible">Aim to make functions as “pure” as possible</h3>
 <p>Purity is a term you normally associate with Haskell but that doesn’t mean we cannot make use of it in Go as well. Functions without side-effects makes refactoring so much easier. Let’s say we are staring at the initial solution fresh. Practically, that function takes a string and uppercases it. So why does it need to be associated with a <code class="highlighter-rouge">Human</code> and it’s <code class="highlighter-rouge">Name</code>? It sounds like it could live under the <code class="highlighter-rouge">string</code> package. <a href="https://golang.org/pkg/strings/#ToUpper">Indeed such function does exist!</a> But let’s assume that it didn’t exist. What would our code look like.</p>
 
 <figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="x">    </span><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
