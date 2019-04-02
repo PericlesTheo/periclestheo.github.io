@@ -1,5 +1,6 @@
 basic_settings:
-  site_title: 👋, I'm Pericles Theodorou.
+  site_title: Pericles Theodorou Blog
+  greeting: 👋, I'm Pericles Theodorou.
   site_tagline: I share my passion for technology and products. CTO <a href="https://creditdigital.co.uk" target="_blank">@creditdigital</a>.
   favicon_image: /images/favicon.png
 
