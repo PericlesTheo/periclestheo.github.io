@@ -157,24 +157,24 @@
     	</span><span class="n">h</span><span class="o">.</span><span class="n">Name</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="kt">string</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="x">
     </span><span class="p">}</span></code></pre></figure>
 
-<p>So, what’s the issue with the above code anw?</p>
+<p>So, what’s the issue with the above code anyway?</p>
 
 <h3 id="mutation-is-sneaky-at-best">Mutation is sneaky at best</h3>
 <p>Mutation is difficult to tackle when things go wrong. A million things could have altered the state of your program. Now, it’s not to say mutation is necessarily bad but in a lot of cases we can improve its visibility. For instance, instead of having <code class="highlighter-rouge">transformName</code> doing the mutation, have it return a <code class="highlighter-rouge">string</code>. This will force the propagation of the mutation to happen at a more visible place.</p>
 
 <figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="x">    </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
-    	</span><span class="n">h</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">Human</span><span class="p">{</span><span class="s">"JeSsie"</span><span class="p">}</span><span class="x">
+    	</span><span class="n">h</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">Human</span><span class="p">{</span><span class="n">Name</span><span class="o">:</span><span class="x"> </span><span class="s">"JeSsie"</span><span class="p">}</span><span class="x">
     	</span><span class="n">h</span><span class="o">.</span><span class="n">Name</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">transformName</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="x">
     	</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">Name</span><span class="p">)</span><span class="x"> </span><span class="c">// returns 'JESSIE'</span><span class="x">
     </span><span class="p">}</span></code></pre></figure>
 
-<p>The above though doesn’t really feel idiomatic Go. Moreover, there is a better way of achieving a similar effect to the above.</p>
+<p>The above though doesn’t really feel like idiomatic Go. Moreover, there is a better way of achieving a similar effect to the above.</p>
 
 <h3 id="use-methods-when-it-comes-to-mutations">Use methods when it comes to mutations</h3>
 <p>Methods are just functions that have a particular receiver. Attaching behaviour that is operating specifically on a type is the perfect usecase. It also makes code much cleaner.</p>
 
 <figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="x">    </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
-    	</span><span class="n">h</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">Human</span><span class="p">{</span><span class="s">"JeSsie"</span><span class="p">}</span><span class="x">
+    	</span><span class="n">h</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">Human</span><span class="p">{</span><span class="n">Name</span><span class="o">:</span><span class="x"> </span><span class="s">"JeSsie"</span><span class="p">}</span><span class="x">
     	</span><span class="n">h</span><span class="o">.</span><span class="n">transformName</span><span class="p">()</span><span class="x">
     	</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">Name</span><span class="p">)</span><span class="x">
     </span><span class="p">}</span><span class="x">
@@ -214,7 +214,7 @@
 <p>What about the method? Well that’s an interesting one. On the surface, it’s no better than the initial implementation. I beg to disagree though. By hiding the internal implementation and attaching it to the <code class="highlighter-rouge">Human</code> type, we have now given full control of details to the struct itself.</p>
 
 <h3 id="aim-to-make-functions-as-pure-as-possible">Aim to make functions as “pure” as possible</h3>
-<p>Purity is a term you normally associate with Haskell but that doesn’t mean we cannot make use of it in Go as well. Functions without side-effects makes refactoring so much easier. Let’s say we are staring at the initial solution fresh. Practically, that function takes a string and uppercases it. So why does it need to be associated with a <code class="highlighter-rouge">Human</code> and it’s <code class="highlighter-rouge">Name</code>? It sounds like it could live under the <code class="highlighter-rouge">string</code> package. <a href="https://golang.org/pkg/strings/#ToUpper">Indeed such function does exist!</a> But let’s assume that it didn’t exist. What would our code look like.</p>
+<p>Purity is a term you normally associate with functional languanges such as Haskell but that doesn’t mean we cannot make use of it in Go as well. Functions without side-effects makes refactoring so much easier. Let’s say we are staring at the initial solution fresh. Practically, that function takes a string and uppercases it. So why does it need to be associated with a <code class="highlighter-rouge">Human</code> and it’s <code class="highlighter-rouge">Name</code>? It sounds like it could live under the <code class="highlighter-rouge">string</code> package. <a href="https://golang.org/pkg/strings/#ToUpper">Indeed such a function does exist!</a> But let’s assume that it didn’t exist. What would our code look like?</p>
 
 <figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="x">    </span><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
     
@@ -227,7 +227,7 @@
     </span><span class="p">}</span><span class="x">
     
     </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
-    	</span><span class="n">h</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">Human</span><span class="p">{</span><span class="s">"JeSsie"</span><span class="p">}</span><span class="x">
+    	</span><span class="n">h</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">Human</span><span class="p">{</span><span class="n">Name</span><span class="o">:</span><span class="x"> </span><span class="s">"JeSsie"</span><span class="p">}</span><span class="x">
     	</span><span class="n">h</span><span class="o">.</span><span class="n">Name</span><span class="x"> </span><span class="o">=</span><span class="x"> </span><span class="n">uppercaseString</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">Name</span><span class="p">)</span><span class="x">
     	</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">Name</span><span class="p">)</span><span class="x">
     </span><span class="p">}</span><span class="x">
@@ -260,7 +260,7 @@
     </span><span class="p">}</span><span class="x">
     
     </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
-    	</span><span class="n">h</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">Human</span><span class="p">{</span><span class="s">"JeSsie"</span><span class="p">}</span><span class="x">
+    	</span><span class="n">h</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">Human</span><span class="p">{</span><span class="n">Name</span><span class="o">:</span><span class="x"> </span><span class="s">"JeSsie"</span><span class="p">}</span><span class="x">
     	</span><span class="n">h</span><span class="o">.</span><span class="n">transformName</span><span class="p">()</span><span class="x">
     	</span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">Name</span><span class="p">)</span><span class="x">
     </span><span class="p">}</span><span class="x">
@@ -286,7 +286,7 @@
 
 <p>Whether is worth the extra step or not is up to the programmer and the circumstances.</p>
 
-<p>Up until this point, I mentiond that pointers are mostly an optimization strategy which is slightly misleading. In his book <a href="https://www.manning.com/books/go-in-action">Go in Action</a>, <a href="https://twitter.com/goinggodotnet">Bill Kennedy</a> goes in great detail about pointers semantics. Pointer semantics are <em>the</em> way we should think about the way we build software in Go. Performance can come later.</p>
+<p>Up until this point, I mentioned that pointers are mostly an optimization strategy which is slightly misleading. In his book <a href="https://www.manning.com/books/go-in-action">Go in Action</a>, <a href="https://twitter.com/goinggodotnet">Bill Kennedy</a> goes in great detail about pointers semantics. Pointer semantics are <em>the</em> way we should think about the way we build software in Go. Performance can come later.</p>
 
 <p>Pointer semantics allude to the idea that certain entities in your software will need to propagate any changes to the rest of the program. We see this a lot with configuration and structs that represent table data. Let’s say we have a User table and we have a <code class="highlighter-rouge">User</code> struct type. Does a change in the <code class="highlighter-rouge">User</code>’s email need to be realised by another part of the program that is operating on that entity? If this answer is yes, mostly likely you need to be using a pointer to represent that entity.</p>
 
@@ -319,29 +319,6 @@
 
 <figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="x">    </span><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
     
-    </span><span class="k">type</span><span class="x"> </span><span class="n">User</span><span class="x"> </span><span class="k">struct</span><span class="x"> </span><span class="p">{</span><span class="x">
-    	</span><span class="n">Email</span><span class="x"> </span><span class="kt">string</span><span class="x">
-    </span><span class="p">}</span><span class="x">
-    
-    </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
-    	</span><span class="n">u</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">findUser</span><span class="p">(</span><span class="s">"email@icloud.com"</span><span class="p">)</span><span class="x">
-    	</span><span class="k">if</span><span class="x"> </span><span class="n">u</span><span class="o">.</span><span class="n">Email</span><span class="x"> </span><span class="o">==</span><span class="x"> </span><span class="s">""</span><span class="x"> </span><span class="p">{</span><span class="x">
-    		</span><span class="nb">panic</span><span class="p">(</span><span class="s">"OMG!!"</span><span class="p">)</span><span class="x">
-    	</span><span class="p">}</span><span class="x">
-    </span><span class="p">}</span><span class="x">
-    
-    </span><span class="c">// findUser performs a DB lookup and returns a User</span><span class="x">
-    </span><span class="k">func</span><span class="x"> </span><span class="n">findUser</span><span class="p">(</span><span class="n">str</span><span class="x"> </span><span class="kt">string</span><span class="p">)</span><span class="x"> </span><span class="o">*</span><span class="n">User</span><span class="x"> </span><span class="p">{</span><span class="x">
-    	</span><span class="c">// Ooops we couldn't find a user</span><span class="x">
-    	</span><span class="k">return</span><span class="x"> </span><span class="o">&amp;</span><span class="n">User</span><span class="p">{}</span><span class="x">
-    </span><span class="p">}</span></code></pre></figure>
-
-<p>Yeah I said it! Just instantiate an empty <code class="highlighter-rouge">User</code> struct and utilize Go’s default values.</p>
-
-<p>What about an even better way?</p>
-
-<figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="x">    </span><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
-    
     </span><span class="k">import</span><span class="x"> </span><span class="s">"errors"</span><span class="x">
     
     </span><span class="k">type</span><span class="x"> </span><span class="n">User</span><span class="x"> </span><span class="k">struct</span><span class="x"> </span><span class="p">{</span><span class="x">
@@ -365,7 +342,7 @@
 
 <h3 id="imo-my-code-shouldnt-be-affected-based-on-pointer-semantics">IMO my code shouldn’t be affected based on pointer semantics</h3>
 <p>Obviously working with pointers forces you to think and structure your application in a different way. I argue that it shouldn’t really matter the way we design our interactions between our functions.
-Let’s flip it on it’s head a bit and see our functions as if it was returning a value instead of a pointer.</p>
+Let’s flip it on its head a bit and see our functions as if it was returning a value instead of a pointer.</p>
 
 <figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="x">    </span><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
     

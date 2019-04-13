@@ -43,27 +43,27 @@ Let's see a typical usage of pointers:
     }
 {% endhighlight %}
 
-So, what's the issue with the above code anw?
+So, what's the issue with the above code anyway?
 
 ### Mutation is sneaky at best
 Mutation is difficult to tackle when things go wrong. A million things could have altered the state of your program. Now, it's not to say mutation is necessarily bad but in a lot of cases we can improve its visibility. For instance, instead of having `transformName` doing the mutation, have it return a `string`. This will force the propagation of the mutation to happen at a more visible place.
 
 {% highlight go %}
     func main() {
-    	h := &Human{"JeSsie"}
+    	h := &Human{Name: "JeSsie"}
     	h.Name = transformName(h)
     	fmt.Println(h.Name) // returns 'JESSIE'
     }
 {% endhighlight %}
 
-The above though doesn't really feel idiomatic Go. Moreover, there is a better way of achieving a similar effect to the above.
+The above though doesn't really feel like idiomatic Go. Moreover, there is a better way of achieving a similar effect to the above.
 
 ### Use methods when it comes to mutations
 Methods are just functions that have a particular receiver. Attaching behaviour that is operating specifically on a type is the perfect usecase. It also makes code much cleaner.
 
 {% highlight go %}
     func main() {
-    	h := &Human{"JeSsie"}
+    	h := &Human{Name: "JeSsie"}
     	h.transformName()
     	fmt.Println(h.Name)
     }
@@ -108,7 +108,7 @@ Nice! It's very clear to the reader that this function receives a string and ret
 What about the method? Well that's an interesting one. On the surface, it's no better than the initial implementation. I beg to disagree though. By hiding the internal implementation and attaching it to the `Human` type, we have now given full control of details to the struct itself.
 
 ### Aim to make functions as "pure" as possible
-Purity is a term you normally associate with Haskell but that doesn't mean we cannot make use of it in Go as well. Functions without side-effects makes refactoring so much easier. Let's say we are staring at the initial solution fresh. Practically, that function takes a string and uppercases it. So why does it need to be associated with a `Human` and it's `Name`? It sounds like it could live under the `string` package. [Indeed such function does exist!](https://golang.org/pkg/strings/#ToUpper) But let's assume that it didn't exist. What would our code look like.
+Purity is a term you normally associate with functional languanges such as Haskell but that doesn't mean we cannot make use of it in Go as well. Functions without side-effects makes refactoring so much easier. Let's say we are staring at the initial solution fresh. Practically, that function takes a string and uppercases it. So why does it need to be associated with a `Human` and it's `Name`? It sounds like it could live under the `string` package. [Indeed such a function does exist!](https://golang.org/pkg/strings/#ToUpper) But let's assume that it didn't exist. What would our code look like?
 
 {% highlight go %}
     package main
@@ -122,7 +122,7 @@ Purity is a term you normally associate with Haskell but that doesn't mean we ca
     }
     
     func main() {
-    	h := &Human{"JeSsie"}
+    	h := &Human{Name: "JeSsie"}
     	h.Name = uppercaseString(h.Name)
     	fmt.Println(h.Name)
     }
@@ -157,7 +157,7 @@ Great. But we can make it more Go-like based on what we have discussed so far.
     }
     
     func main() {
-    	h := &Human{"JeSsie"}
+    	h := &Human{Name: "JeSsie"}
     	h.transformName()
     	fmt.Println(h.Name)
     }
@@ -184,7 +184,7 @@ Great. But we can make it more Go-like based on what we have discussed so far.
 
 Whether is worth the extra step or not is up to the programmer and the circumstances.
 
-Up until this point, I mentiond that pointers are mostly an optimization strategy which is slightly misleading. In his book [Go in Action](https://www.manning.com/books/go-in-action), [Bill Kennedy](https://twitter.com/goinggodotnet) goes in great detail about pointers semantics. Pointer semantics are _the_ way we should think about the way we build software in Go. Performance can come later.
+Up until this point, I mentioned that pointers are mostly an optimization strategy which is slightly misleading. In his book [Go in Action](https://www.manning.com/books/go-in-action), [Bill Kennedy](https://twitter.com/goinggodotnet) goes in great detail about pointers semantics. Pointer semantics are _the_ way we should think about the way we build software in Go. Performance can come later.
 
 Pointer semantics allude to the idea that certain entities in your software will need to propagate any changes to the rest of the program. We see this a lot with configuration and structs that represent table data. Let's say we have a User table and we have a `User` struct type. Does a change in the `User`'s email need to be realised by another part of the program that is operating on that entity? If this answer is yes, mostly likely you need to be using a pointer to represent that entity.
 
@@ -216,30 +216,6 @@ At first glance, this makes sense. However, we have used the fact that `findUser
 
 ### Nil sucks 🔥
 In languages like Ruby where types are not a thing, `nil` is pretty much the only way to represent the absence of a value. But with Go we can do so much better.
-{% highlight go %}
-    package main
-    
-    type User struct {
-    	Email string
-    }
-    
-    func main() {
-    	u := findUser("email@icloud.com")
-    	if u.Email == "" {
-    		panic("OMG!!")
-    	}
-    }
-    
-    // findUser performs a DB lookup and returns a User
-    func findUser(str string) *User {
-    	// Ooops we couldn't find a user
-    	return &User{}
-    }
-{% endhighlight %}
-
-Yeah I said it! Just instantiate an empty `User` struct and utilize Go's default values. 
-
-What about an even better way?
 
 {% highlight go %}
     package main
@@ -268,7 +244,7 @@ This approach, builds on the whole idea of Go's multiple returns with the last o
 
 ### IMO my code shouldn't be affected based on pointer semantics
 Obviously working with pointers forces you to think and structure your application in a different way. I argue that it shouldn't really matter the way we design our interactions between our functions.
-Let's flip it on it's head a bit and see our functions as if it was returning a value instead of a pointer.
+Let's flip it on its head a bit and see our functions as if it was returning a value instead of a pointer.
 
 {% highlight go %}
     package main
