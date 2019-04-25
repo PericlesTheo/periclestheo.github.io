@@ -54,4 +54,6 @@ What have you worked on that you were the most proud of? Which aspect of a techn
 Just a few simple questions to get the creative juices flowing. People will come up with their own, unique way of expressing themselves.
 
 ### Conclusion
-Even though I truly believe this is a better way to hire both the the company and the candidate, I don't see changing it in the near future. I will probably run the above as an experiment at [CreditDigital](https://www.creditdigital.co.uk) and see the results.
+Even though I truly believe this is a better way to hire both the the company and the candidate, I don't see changing it in the near future. One might say, "Well, that's what I do with a CV. I then call the candidate and find out more information". If you find that easy, great. I just don't think there are any actionable information on a CV. On the other hand, having the candidate explaining what drives them, what they have *actually* worked on and are proud of provide you with a wealth of information to drill down more and learn about them.
+
+I will probably run the above as an experiment at [CreditDigital](https://www.creditdigital.co.uk) and see the results.
