@@ -18,7 +18,7 @@ University of x. "Meh, I'm not sure about this university. I have heard it befor
 
 "Politecnico di Milano", I can hear my brain shouting "This is not even a British university! How do I even begin to find out if it's good or not?! I will not bother checking it out".
 
-Bootcamp. Well for sure they are not experienced enough. How could they possible know about garbage collection cycles". For the record, I have no idea about garbage collection cycles apart from that blog post I read 2 years ago on Hacker News. So, you can call me an expert I guess.
+Bootcamp. "Well for sure they are not experienced enough. How could they possible know about garbage collection cycles". For the record, I have no idea about garbage collection cycles apart from that blog post I read 2 years ago on Hacker News. So, you can call me an expert I guess.
 
 So, 4 humans but only 1 seems to be getting a 🥇. Why is that? People often think that discounting university degrees is an attack on formal education. That's not the case. Maybe it's an attack on elitism actually. It's not about making candidate number 1 more but rather why are the other 3 candidates less?
 
@@ -33,11 +33,11 @@ When I was at Deliveroo, my CV will probably say, I worked on Kafka to decouple 
 
 You are probably thinking right now, "I will be able to uncover that on the CV". Unless the job is to work on Kafka itself, no you won't. Most likely the applicant would have read a bit more about Kafka the night before and know most of the terminology.
 
-Just because someone worked at a very well known company, doesn't make them experts in the technology they are claiming they know. Software is about abstractions. Sometimes we don't see the internals of the technologies we work on. That's even more true for bigger companies as dedicated teams take care of those pieces. In the case of Deliveroo and Kafka, the Data Engineering team had complete control of it.
+Just because someone worked at a very well known company, doesn't make them experts in the technology they are claiming they know. Software is about abstractions. Sometimes we don't see the internals of the technologies we work on. That's even more true for bigger companies as dedicated teams take care of those pieces. In the case of Deliveroo and Kafka, the Data Engineering team had complete control over it.
 
-This is not to say that working on Kafka even on that capacity does not make it a valuable experience. Abstractions are great, that's how we get things done instead of re-inventing the wheel. But why bother, if this is something that can be taught on the job?
+This is not to say that working on Kafka even in that capacity does not make it a valuable experience. Abstractions are great, that's how we get things done instead of re-inventing the wheel. But why bother, if this is something that can be taught on the job?
 
-The **Experience** section has also another problematic side to it. It's more or less the same as the education. I guarantee you stop skimming through a CV when you come across Twitter, Facebook, Google and Amazon. But not when the name of the company does not ring a bell. There are a plethora of businesses that are doing excellent work, it's just not that fancy for TechCrunch. Even consultancies: everyone knows ThoughtWorks (for good reason) but what about a non-known consultancy? Does that mean the developer hasn't produced quality work? Again, is not about being an engineer at Twitter is less but why being an engineer at x is not more?
+The **Experience** section has also another problematic side to it. It's more or less the same as the education. I guarantee you stop skimming through a CV when you come across Twitter, Facebook, Google and Amazon. But not when the name of the company does not ring a bell. There are a plethora of businesses that are doing excellent work, it's just not that fancy for TechCrunch. Even consultancies: everyone knows ThoughtWorks (for good reason) but what about a not known consultancy? Does that mean the developer hasn't produced quality work? Again, is not about being an engineer at Twitter is more but why being an engineer at x is less?
 
 ### Buzzwords
 This is a simple one. As applicants, we are trying to fill CV with the latest cool technologies and words that will make the recruiter look at the CV. No, I hadn't had the chance to work with Go prior to joining Deliveroo. How long do you think it took me to contribute production code? With the right support system (thanks Antonio et al) I was productive in Go from day 1.
