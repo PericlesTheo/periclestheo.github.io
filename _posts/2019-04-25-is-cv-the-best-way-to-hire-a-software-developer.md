@@ -7,7 +7,7 @@ excerpt: I've been on both sides of the table as an applicant and as an intervie
 
 ![Photo by Clem Onojeghuo on Unsplash](/images/cv-resume/featured.jpg)
 
-I really hate doing things I know are borderline bullshit just because they are conventional wisdom. CVs are definitely one of them. First of all, biases always find their way around a CV. Age, sex and name are just some of the information we now reduct or obfuscate in order to remove certain biases. I would argue we need to deduct the whole CV in order to be somewhat impartial and effective. But then, you might ask, how do we vet people if not through a CV? How would you know about their background, skills and experience if you don't read their CV?
+I really hate doing things I know are borderline bullshit just because they are conventional wisdom. CVs are definitely one of them. First of all, biases always find their way around a CV. Age, sex and name are just some of the information we now obfuscate in order to remove certain biases. I would argue we need to deduct the whole CV in order to be somewhat impartial and effective. But then, you might ask, how do we vet people if not through a CV? How would you know about their background, skills and experience if you don't read their CV?
 
 Let me save you some time. People exaggerate so what you see on a CV is a stretch of their actual experience. The sad thing is everyone knows this. But I'd like to examine a couple of *sections* on the CV bit closer that reflect my own biases when I'm reading someone's CV.
 
@@ -18,13 +18,13 @@ University of x. "Meh, I'm not sure about this university. I have heard it befor
 
 "Politecnico di Milano", I can hear my brain shouting "This is not even a British university! How do I even begin to find out if it's good or not?! I will not bother checking it out".
 
-Bootcamp. "Well for sure they are not experienced enough. How could they possible know about garbage collection cycles". For the record, I have no idea about garbage collection cycles apart from that blog post I read 2 years ago on Hacker News. So, you can call me an expert I guess.
+Bootcamp. "Well for sure they are not experienced enough. How could they possibly know about garbage collection cycles". For the record, I have no idea about garbage collection cycles apart from that blog post I read 2 years ago on Hacker News. So, you can call me an expert I guess.
 
 So, 4 humans but only 1 seems to be getting a 🥇. Why is that? People often think that discounting university degrees is an attack on formal education. That's not the case. Maybe it's an attack on elitism actually. It's not about making candidate number 1 more but rather why are the other 3 candidates less?
 
 In our great and diverse industry, there are plenty of developers that didn't even study Computer Science. Some of them are the best I know. An example is my good friend [Txus](https://twitter.com/txustice).
 
-So how about we drop that section completely? It takes a bit of a real estate on paper as well.
+So how about we drop that section completely? Google and others *apparently* have already done so. It takes a bit of a real estate on paper as well.
 
 ### Experience
 Fasten your seat belts for this section. Mind the gap as you enter the platform.
@@ -60,6 +60,8 @@ What do you enjoy working on the most? What would you like to work on here?
 Just a few simple questions to get the creative juices flowing. People will come up with their own, unique way of expressing themselves. They might send you commits to open source projects that are super proud of, how the debugged a complicated memory leak (which wouldn't go on the CV) or how they helped grow their colleagues. All of which are way more interesting and important than a bunch of bullet points.
 
 ### Conclusion
+Would this work for companies like Netflix et al? Probably not. They receive 1000s of applications a day. But if you are a startup with an engineering team of < 100 people, I'm sure you can do without CVs.
+
 Even though I truly believe this is a better way to hire both the the company and the candidate, I don't see changing it in the near future. One might say, "Well, that's what I do with a CV. I then call the candidate and find out more information". If you find that easy, great. I just don't think there are any actionable information on a CV. On the other hand, having the candidate explaining what drives them, what they have *actually* worked on and are proud of provide you with a wealth of information to drill down more and learn about them.
 
 I will probably run the above as an experiment at [CreditDigital](https://www.creditdigital.co.uk) and see the results.
