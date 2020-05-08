@@ -7,7 +7,7 @@ featured_image: /images/social.png
 
 ![](/images/venice-beach.jpg)
 
-I've been fortunate enough to have lived in New York, Berlin &amp; London, and worked for some of the best companies such as <a href="https://deliveroo.co.uk">Deliveroo</a> and <a href="https://carwow.co.uk">carwow</a>. At heart, I'm a Ruby developer with ❤ for Go, Elm and Elixir.
+I've been fortunate enough to have lived in New York, Berlin &amp; London, and worked for some of the best companies such as <a href="https://intercom.com">Intercom</a>, <a href="https://deliveroo.co.uk">Deliveroo</a> and <a href="https://carwow.co.uk">carwow</a>. At heart, I'm a Ruby developer with ❤ for Go, Elm and Elixir.
 
 I'm fascinated by the interactions, processeses and building blocks that constitute a valuable product. As such, startups have been an invaluable learning experience that have helped shape my thinking around people, products and business. I hope I can share some of that in this blog. Without a doubt my main influence has been Basecamp. <a href="https://m.signalvnoise.com">Singal v. Noise</a> along with their <a href="https://basecamp.com/books">published books</a> are a great source of learning and inspiration to me.
 
